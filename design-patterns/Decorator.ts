@@ -14,11 +14,7 @@ class BasicIcecream implements Icecream {
 }
 
 class IcecreamDecorator implements Icecream {
-  protected icecream: Icecream;
-
-  constructor(icecream: Icecream) {
-    this.icecream = icecream;
-  }
+  constructor(protected icecream: Icecream) {}
 
   price(): number {
     return this.icecream.price();
@@ -66,6 +62,5 @@ console.log(`${myIceCream.description()} - ${myIceCream.price()}`); // Basic ice
 
 myIceCream = new PistachioDecorator(myIceCream);
 console.log(`${myIceCream.description()} - ${myIceCream.price()}`); // Basic icecream, Chocolate, Pistachio - 8
-
 
 // This allows behavior to be added to individual objects, either statically or dynamically, without affecting the behavior of other objects from the same class.
